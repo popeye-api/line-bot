@@ -93,7 +93,7 @@ function mySQL_select($url,$word)
 	$result = file_get_contents($url);
 	
 	$result_json = json_decode($result, true); //var_dump($result_json);
-	
+	$data = $word.":\r\n";
 	$data = "ไม่พบ:\r\n";
 		
 	foreach($result_json as $values) {
