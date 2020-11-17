@@ -21,7 +21,7 @@ foreach ($request_json['events'] as $event)
 			if($test[1] == "ฉันต้องการค้นหาข้อมูลนิสิตทั้งหมด"){
 				$reply_message = mySQL_selectAll('http://bot.kantit.com/json_select_users.php');
 			}
-			if($test[1] == "ฉันต้องการค้นหาข้อมูลนิสิตชื่อ" || $test[1] == "ฉันต้องการค้นหาข้อมูลนิสิต" || $test[1] == "ฉันต้องการค้นหาข้อมูลรหัสนิสิต"){
+			if($test[1] == "ฉันต้องการค้นหาข้อมูลนิสิตชื่อ" || $test[1] == "ฉันต้องการค้นหาข้อมูลนิสิต" || $test[1] == "ฉันต้องการค้นหาข้อมูลรหัสนิสิต" || $test[1] == "ฉันต้องการค้นหาข้อมูลนิสิตนามสกุล"){
 				$reply_message = mySQL_select('http://bot.kantit.com/json_select_users.php',$test[2]);
 			}
 			
