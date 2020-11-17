@@ -18,10 +18,10 @@ foreach ($request_json['events'] as $event)
 			$reply_message = 'Popeye'." ".$test[2]; 
 			//$reply_message = mySQL_selectAll('http://bot.kantit.com/json_select_users.php');
 			
-			if($test[2] == "ฉันต้องการค้นหาข้อมูลนิสิตทั้งหมด"){
+			if($test[1] == "ฉันต้องการค้นหาข้อมูลนิสิตทั้งหมด"){
 				$reply_message = mySQL_selectAll('http://bot.kantit.com/json_select_users.php');
 			}
-			if($test[2] == "ฉันต้องการค้นหาข้อมูลนิสิตชื่อ"){
+			if($test[1] == "ฉันต้องการค้นหาข้อมูลนิสิตชื่อ"){
 				$reply_message = mySQL_select('http://bot.kantit.com/json_select_users.php',$test[2]);
 			}
 			
