@@ -98,8 +98,8 @@ function mySQL_select($url, $word)
 	
 		
 	foreach($result_json as $values) {
-		$pos = strpos($values["user_firstname"], "นาย");
-		if($pos == true){
+		$pos = strripos($values["user_firstname"], "นาย");
+		if($pos === true){
 		$first = str_replace("นาย","",$values["user_firstname"]);
 		}
 		else{
