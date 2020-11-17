@@ -98,11 +98,13 @@ function mySQL_select($url, $word)
 	
 		
 	foreach($result_json as $values) {
-		
+		$pos = strpos($values["user_firstname"], 'นาย');
+		if ($pos === true) {
 		$first = str_replace("นาย","",$values["user_firstname"]);
-		
+		}
+		else{
 		$first = str_replace("นางสาว","",$values["user_firstname"]);
-		
+		}
 		
 		
 		if($word == $values["user_stuid"] || $word == $first || $word == $values["user_lastname"]){
