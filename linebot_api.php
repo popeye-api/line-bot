@@ -26,7 +26,7 @@ foreach ($request_json['events'] as $event)
 				
 				
 				if($txts[1] == "ขอรายชื่อนิสิตทั้งหมด"){
-					$url = 'https://linebot.kantit.com/stuid.php';
+					$url = 'http://bot.kantit.com/json_select_users.php';
 					$ch = curl_init($url);
 					curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
