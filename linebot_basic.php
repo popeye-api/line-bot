@@ -16,9 +16,9 @@ foreach ($request_json['events'] as $event)
 			
 			$reply_message = 'ฉันได้รับข้อความ '. $text.' ของคุณแล้ว!';   
 			$reply_message = 'Popeye';   
-			$reply_message = mySQL_selectAll('http://bot.kantit.com/json_select_users.php');
+			//$reply_message = mySQL_selectAll('http://bot.kantit.com/json_select_users.php');
 			
-			if($text == " @บอท ฉันต้องการค้นหาข้อมูลนิสิต"){
+			if($text == "@บอท ฉันต้องการค้นหาข้อมูลนิสิต"){
 			$reply_message = mySQL_selectAll('http://bot.kantit.com/json_select_users.php');
 			}
 			
