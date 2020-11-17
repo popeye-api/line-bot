@@ -97,7 +97,16 @@ function mySQL_select($url, $word)
 	$data = "ไม่พบ:\r\n";
 		
 	foreach($result_json as $values) {
-		if($word == $values["user_stuid"] || $word == $values["user_firstname"] || $word == $values["user_lastname"]){
+		$pos = strpos($values["user_firstname"], "นาย");
+		if($pos === true){
+		$first = str_replace("นาย","",$values["user_firstname"]);
+		}
+		else{
+		$first = str_replace("นางสาว","",$values["user_firstname"]);
+		}
+		
+		
+		if($word == $values["user_stuid"] || $word == $first || $word == $values["user_lastname"]){
 		$data = "พบ:\r\n";	
 		$data .= $values["user_stuid"] . " " . $values["user_firstname"] . " " . $values["user_lastname"] . "\r\n";
 		}
