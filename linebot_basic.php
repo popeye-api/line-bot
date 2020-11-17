@@ -94,7 +94,8 @@ function mySQL_select($url, $word)
 	
 	$result_json = json_decode($result, true); //var_dump($result_json);
 	$data = $word.":\r\n";
-	$data = "ไม่พบ:\r\n";
+	
+	
 		
 	foreach($result_json as $values) {
 		$pos = strpos($values["user_firstname"], "นาย");
@@ -105,6 +106,8 @@ function mySQL_select($url, $word)
 		$first = str_replace("นางสาว","",$values["user_firstname"]);
 		}
 		
+	$data .= $first.":\r\n";
+	$data .= "ไม่พบ:\r\n";
 		
 		if($word == $values["user_stuid"] || $word == $first || $word == $values["user_lastname"]){
 		$data = "พบ:\r\n";	
