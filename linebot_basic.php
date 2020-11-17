@@ -100,6 +100,7 @@ function mySQL_select($url, $word)
 	foreach($result_json as $values) {
 		$pos = strpos($values["user_firstname"], 'นาย');
 		if ($pos === true) {
+		$data .= $pos.":\r\n";
 		$first = str_replace("นาย","",$values["user_firstname"]);
 		}
 		else{
