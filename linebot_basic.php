@@ -106,12 +106,14 @@ function mySQL_select($url, $word)
 		$first = str_replace("นางสาว","",$values["user_firstname"]);
 		}
 		
-	$data .= $first.":\r\n";
-	$data .= "ไม่พบ:\r\n";
 		
 		if($word == $values["user_stuid"] || $word == $first || $word == $values["user_lastname"]){
 		$data = "พบ:\r\n";	
 		$data .= $values["user_stuid"] . " " . $values["user_firstname"] . " " . $values["user_lastname"] . "\r\n";
+		}
+		else{
+		$data .= $first.":\r\n";
+		$data .= "ไม่พบ:\r\n";
 		}
 		
 	}	
