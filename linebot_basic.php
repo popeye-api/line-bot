@@ -88,7 +88,7 @@ function mySQL_selectAll($url)
 	return $data;
 }
 
-function mySQL_select($url,$word)
+function mySQL_select($url, $word)
 {
 	$result = file_get_contents($url);
 	
