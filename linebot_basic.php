@@ -21,7 +21,7 @@ foreach ($request_json['events'] as $event)
 			if($test[1] == "ฉันต้องการค้นหาข้อมูลนิสิตทั้งหมด"){
 				$reply_message = mySQL_selectAll('http://bot.kantit.com/json_select_users.php');
 			}
-			if($test[1] == "ฉันต้องการค้นหาข้อมูลนิสิตชื่อ"){
+			if($test[1] == "ฉันต้องการค้นหาข้อมูลนิสิตชื่อ" || $test[1] == "ฉันต้องการค้นหาข้อมูลนิสิต" || $test[1] == "ฉันต้องการค้นหาข้อมูลรหัสนิสิต"){
 				$reply_message = mySQL_select('http://bot.kantit.com/json_select_users.php',$test[2]);
 			}
 			
@@ -93,10 +93,8 @@ function mySQL_select($url, $word)
 	$result = file_get_contents($url);
 	$sen = $word;
 	$result_json = json_decode($result, true); //var_dump($result_json);
-	$data = $sen.":\r\n";
 	
-	
-		
+	$data = "ไม่พบ:\r\n";	
 	foreach($result_json as $values) {
 		$pos = strpos($values["user_firstname"], "นาย");
 		if ($pos !== false) {
@@ -112,10 +110,7 @@ function mySQL_select($url, $word)
 		$data = "พบ:\r\n";	
 		$data .= $values["user_stuid"] . " " . $values["user_firstname"] . " " . $values["user_lastname"] . "\r\n";
 		}
-		else{
-		$data .= $first.":\r\n";
-		$data .= "ไม่พบ:\r\n";
-		}
+		
 		
 	}	
 	
