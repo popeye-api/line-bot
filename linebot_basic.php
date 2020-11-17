@@ -22,7 +22,7 @@ foreach ($request_json['events'] as $event)
 				$reply_message = mySQL_selectAll('http://bot.kantit.com/json_select_users.php');
 			}
 			if($test[1]." ".$test[2] == "@บอท ฉันต้องการค้นหาข้อมูลนิสิตชื่อ"){
-				$reply_message = mySQL_select('http://bot.kantit.com/json_select_users.php',$test[3]);
+				$reply_message = mySQL_select('http://bot.kantit.com/json_select_users.php',$test[2]);
 			}
 			
 			
