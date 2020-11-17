@@ -13,21 +13,15 @@ foreach ($request_json['events'] as $event)
 		if($event['message']['type'] == 'text')
 		{
 			$text = $event['message']['text'];
-			if($text=="@บอท ฉันต้องการค้นหาข้อมูลนิสิตทั้งหมด"){
-				
-
-				$reply_message = 'ฉันได้รับข้อความ '. $text.' ของคุณแล้ว!';   
-				$reply_message = 'Popeye';   
-				$reply_message = mySQL_selectAll('http://bot.kantit.com/json_select_users.php');
-				
-				
-			}
-				
 			
+			$reply_message = 'ฉันได้รับข้อความ '. $text.' ของคุณแล้ว!';   
+			$reply_message = 'Popeye';   
+			$reply_message = mySQL_selectAll('http://bot.kantit.com/json_select_users.php');
 			
 		} else {
 			$reply_message = 'ฉันได้รับ '.$event['message']['type'].' ของคุณแล้ว!';
 		}
+				
 	} else {
 		$reply_message = 'ฉันได้รับ Event '.$event['type'].' ของคุณแล้ว!';
 	}
