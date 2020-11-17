@@ -13,9 +13,9 @@ foreach ($request_json['events'] as $event)
 		if($event['message']['type'] == 'text')
 		{
 			$text = $event['message']['text'];
-			
+			$test = explode(" ", $text);
 			$reply_message = 'ฉันได้รับข้อความ '. $text.' ของคุณแล้ว!';   
-			$reply_message = 'Popeye'." ".substr($text,0,20);   
+			$reply_message = 'Popeye'." ".$test[1]; 
 			//$reply_message = mySQL_selectAll('http://bot.kantit.com/json_select_users.php');
 			
 			if($text == "@บอท ฉันต้องการค้นหาข้อมูลนิสิตทั้งหมด"){
