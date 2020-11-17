@@ -15,11 +15,14 @@ foreach ($request_json['events'] as $event)
 			$text = $event['message']['text'];
 			$test = explode(" ", $text);
 			$reply_message = 'ฉันได้รับข้อความ '. $text.' ของคุณแล้ว!';   
-			$reply_message = 'Popeye'." ".$test[1]; 
+			$reply_message = 'Popeye'; 
 			//$reply_message = mySQL_selectAll('http://bot.kantit.com/json_select_users.php');
 			
 			if($text == "@บอท ฉันต้องการค้นหาข้อมูลนิสิตทั้งหมด"){
-			$reply_message = mySQL_selectAll('http://bot.kantit.com/json_select_users.php');
+				$reply_message = mySQL_selectAll('http://bot.kantit.com/json_select_users.php');
+			}
+			else{
+				$reply_message = mySQL_select('http://bot.kantit.com/json_select_users.php',$test[3]);
 			}
 			
 			
@@ -81,6 +84,25 @@ function mySQL_selectAll($url)
 	foreach($result_json as $values) {
 		$data .= $values["user_stuid"] . " " . $values["user_firstname"] . " " . $values["user_lastname"] . "\r\n";
 	}
+	
+	return $data;
+}
+
+function mySQL_select($url,$word)
+{
+	$result = file_get_contents($url);
+	
+	$result_json = json_decode($result, true); //var_dump($result_json);
+	
+	$data = "ไม่พบ:\r\n";
+		
+	foreach($result_json as $values) {
+		if($word == $values["user_stuid"] || $word == $values["user_firstname"] || $word == $values["user_lastname"]){
+		$data = "พบ:\r\n";	
+		$data .= $values["user_stuid"] . " " . $values["user_firstname"] . " " . $values["user_lastname"] . "\r\n";
+		}
+		
+	}	
 	
 	return $data;
 }
