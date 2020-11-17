@@ -22,9 +22,7 @@ foreach ($request_json['events'] as $event)
 				if($txts[1] == "ขอรายชื่อนิสิตทั้งหมด"){
 					$reply_message = mySQL_selectAll('http://bot.kantit.com/json_select_users.php');
 				}
-				if($txts[1]." ".$txts[2] == "ขอรายชื่อนิสิต รหัส"){
-					$reply_message = mySQL_selectAll('http://bot.kantit.com/json_select_users.php?sid='.$txts[3]);
-				}
+				
 			}	
 			
 		} else {
@@ -82,7 +80,7 @@ function mySQL_selectAll($url)
 	$data = "ผลลัพธ์:\r\n";
 		
 	foreach($result_json as $values) {
-		$data .= $values["user_stuid"] . " " . $values["user_firstname"]. " " . $values["user_lastname"] ."\r\n";
+		$data .= $values["user_stuid"] . " " . $values["user_firstname"] . " " . $values["user_lastname"] . "\r\n";
 	}
 	
 	return $data;
