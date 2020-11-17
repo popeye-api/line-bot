@@ -91,9 +91,9 @@ function mySQL_selectAll($url)
 function mySQL_select($url, $word)
 {
 	$result = file_get_contents($url);
-	
+	$sen = $word
 	$result_json = json_decode($result, true); //var_dump($result_json);
-	$data = $word.":\r\n";
+	$data = $sen.":\r\n";
 	
 	
 		
