@@ -12,8 +12,9 @@ foreach ($request_json['events'] as $event)
 	{
 		if($event['message']['type'] == 'text')
 		{
+			$text = $event['message']['text'];
 			if($text=="@บอท ฉันต้องการค้นหาข้อมูลนิสิตทั้งหมด"){
-				$text = $event['message']['text'];
+				
 
 				$reply_message = 'ฉันได้รับข้อความ '. $text.' ของคุณแล้ว!';   
 				$reply_message = 'Popeye';   
